@@ -26,14 +26,15 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
-    loadMovies();
+    fetchMovies();
     super.initState();
   }
 
-  loadMovies() async {
-    TMDB movieInfo = TMDB(ApiKeys(apiKey, apiToken),
-        logConfig: const ConfigLogger(showLogs: true, showErrorLogs: true));
-    Map trendingResults = await movieInfo.v3.trending.getTrending();
+  fetchMovies() async {
+    TMDB apiResponse = TMDB(
+      ApiKeys(apiKey, apiToken),
+    );
+    Map trendingResults = await apiResponse.v3.trending.getTrending();
 
     setState(() {
       trendingMovies = trendingResults['results'];
@@ -50,6 +51,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.brown,
       ),
       body: ListView(
+        padding: const EdgeInsets.all(10),
         children: [
           TrendingMovies(
             trending: trendingMovies,

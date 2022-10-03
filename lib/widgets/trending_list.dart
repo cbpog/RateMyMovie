@@ -16,18 +16,18 @@ class TrendingMovies extends StatelessWidget {
         children: [
           const Text('Trending Movies'),
           const SizedBox(
-            height: 20,
+            height: 30,
           ),
           Container(
             height: 270,
             child: ListView.builder(
                 itemCount: trending.length,
-                scrollDirection: Axis.horizontal,
+                scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {},
                     child: Container(
-                      width: 140,
+                      width: 200,
                       child: Column(
                         children: [
                           Container(
@@ -40,12 +40,8 @@ class TrendingMovies extends StatelessWidget {
                               )),
                             ),
                           ),
-                          Container(
-                            child: Text(
-                              trending[index]['title'] != null
-                                  ? trending[index]['title']
-                                  : loadingMessage,
-                            ),
+                          Text(
+                            trending[index]['title'] ?? loadingMessage,
                           ),
                         ],
                       ),
