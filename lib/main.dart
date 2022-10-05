@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:silver_screen/api_request.dart';
 import 'package:silver_screen/auth_info.dart';
-import 'package:tmdb_api/tmdb_api.dart';
-import 'widgets/trending_list.dart';
 
 void main() {
-  // runApp(MyApp());
-  ApiRequest().fetchMovies();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
