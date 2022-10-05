@@ -5,6 +5,7 @@ import 'package:tmdb_api/tmdb_api.dart';
 import 'widgets/trending_list.dart';
 
 void main() {
+  // runApp(MyApp());
   ApiRequest().fetchMovies();
 }
 

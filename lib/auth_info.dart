@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:silver_screen/widgets/trending_list.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
+//ignore Class for now!! Don't edit
 class Authentication extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,6 @@ class _HomeState extends State<Home> {
     setState(() {
       trendingMovies = trendingResults['results'];
     });
-    print(trendingMovies);
   }
 
   @override

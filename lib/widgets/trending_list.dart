@@ -22,11 +22,11 @@ class TrendingMovies extends StatelessWidget {
             height: 270,
             child: ListView.builder(
                 itemCount: trending.length,
-                scrollDirection: Axis.vertical,
+                scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {},
-                    child: Container(
+                    child: SizedBox(
                       width: 200,
                       child: Column(
                         children: [
