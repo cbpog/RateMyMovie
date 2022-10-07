@@ -5,8 +5,9 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('I can pull a movie from the api', () async {
-    final list = await ApiRequest().fetchMovies();
-    final answer = list.first.movieTitle;
+    final json = await File('test/trending_list.json').readAsString();
+    final trendingList = jsonDecode(json);
+    final answer = trendingList['results'][0]['title'];
     expect(answer, 'Orphan: First Kill');
   });
 
@@ -20,7 +21,7 @@ void main() {
   test('I can get movie genre', () async {
     final json = await File('test/movie_beast.json').readAsString();
     final jsonData = jsonDecode(json);
-    final answer = jsonData['genres'];
-    expect(, '');
+    final answer = jsonData['genres'][0]['id'];
+    expect(answer, 12);
   });
 }

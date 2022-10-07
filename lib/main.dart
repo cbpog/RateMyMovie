@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:silver_screen/api_request.dart';
 import 'package:silver_screen/auth_info.dart';
 
 void main() {
-  runApp(MyApp());
+  // runApp(MyApp());
+  ApiRequest().fetchMovies();
 }
 
 class MyApp extends StatelessWidget {

@@ -10,7 +10,7 @@ class TrendingMovies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -27,11 +27,11 @@ class TrendingMovies extends StatelessWidget {
                   return InkWell(
                     onTap: () {},
                     child: SizedBox(
-                      width: 200,
                       child: Column(
                         children: [
                           Container(
                             height: 200,
+                            width: 150,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                   image: NetworkImage(

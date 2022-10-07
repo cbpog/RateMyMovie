@@ -6,14 +6,14 @@ class MovieData {
   final bool isAdultContent;
   final int movieId;
   final String movieTitle;
-  final String movieDescription;
+  final String movieOverview;
   final String releaseDate;
   final String posterPath;
 
   MovieData({
     required this.isAdultContent,
     required this.movieId,
-    required this.movieDescription,
+    required this.movieOverview,
     required this.movieTitle,
     required this.releaseDate,
     required this.posterPath,
@@ -23,7 +23,7 @@ class MovieData {
     return MovieData(
       isAdultContent: json['adult'] as bool,
       movieId: json['id'] as int,
-      movieDescription: json['overview'] as String,
+      movieOverview: json['overview'] as String,
       movieTitle: json['title'] as String,
       releaseDate: json['release_date'] as String,
       posterPath: json['poster_path'] as String,
