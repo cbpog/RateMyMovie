@@ -1,11 +1,26 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'dart:io';
 import 'package:silver_screen/api_request.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('I can pull a movie title from the api', () async {
+  test('I can pull a movie from the api', () async {
     final list = await ApiRequest().fetchMovies();
     final answer = list.first.movieTitle;
     expect(answer, 'Orphan: First Kill');
+  });
+
+  test('I can get movie released date', () async {
+    final json = await File('test/movie_beast.json').readAsString();
+    final jsonData = jsonDecode(json);
+    final answer = jsonData['release_date'];
+    expect(answer, '2022-08-11');
+  });
+
+  test('I can get movie genre', () async {
+    final json = await File('test/movie_beast.json').readAsString();
+    final jsonData = jsonDecode(json);
+    final answer = jsonData['genres'];
+    expect(, '');
   });
 }
