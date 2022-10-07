@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:silver_screen/api_request.dart';
-import 'package:silver_screen/auth_info.dart';
+import 'package:silver_screen/widgets/auth_info.dart';
 
 void main() {
   // runApp(MyApp());

@@ -8,9 +8,8 @@ import 'package:silver_screen/user_preference.dart';
 void main() async {
   final json = await File('test/trending_list.json').readAsString();
   final trendingList = jsonDecode(json);
-
   UserPreference user =
-      UserPreference(isAdultContent: false, favoriteGenres: [27, 53]);
+      UserPreference(isAdultContent: false, favoriteGenres: [28, 53]);
 
   test('I can get a list of movie from the api', () {
     var movieAsList = trendingList['results'] as List;
@@ -24,7 +23,6 @@ void main() async {
 
   test('I can filter non-adult movies from the list of movie', () {
     List<MovieData> filteredList = [];
-
     var movieAsList = trendingList['results'] as List;
     var list = movieAsList
         .map<MovieData>((json) => MovieData.fromJson(json))
@@ -48,6 +46,7 @@ void main() async {
         .cast<MovieData>()
         .toList();
     for (MovieData movie in list) {
+      print(movie.genre);
       if (movie.genre == user.favoriteGenres) {
         filteredList.add(movie);
       }

@@ -17,7 +17,6 @@ class ApiRequest {
     popularMovies = popularData['results']
         .map<MovieData>((x) => MovieData.fromJson(x))
         .toList();
-
     return popularMovies;
   }
 
