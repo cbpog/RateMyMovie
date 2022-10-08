@@ -1,5 +1,8 @@
 import 'dart:core';
 
+import 'package:silver_screen/genres.dart';
+import 'package:tmdb_api/tmdb_api.dart';
+
 //Instance of movie object
 class MovieData {
   final bool isAdultContent;
@@ -23,9 +26,8 @@ class MovieData {
   });
 
   factory MovieData.fromJson(Map<dynamic, dynamic> json) {
-    var genreList = json['genre_ids'];
     return MovieData(
-      genre: List<int>.from(genreList),
+      genre: List<int>.from(json['genre_ids']),
       isSuggested: false,
       isAdultContent: json['adult'] as bool,
       movieId: json['id'] as int,

@@ -2,14 +2,13 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:silver_screen/api_request.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:silver_screen/genres.dart';
 import 'package:silver_screen/movie.dart';
 import 'package:silver_screen/user_preference.dart';
 
 void main() async {
   final json = await File('test/trending_list.json').readAsString();
   final trendingList = jsonDecode(json);
-  UserPreference user =
-      UserPreference(isAdultContent: false, favoriteGenres: [28, 53]);
 
   test('I can get a list of movie from the api', () {
     var movieAsList = trendingList['results'] as List;
@@ -29,7 +28,7 @@ void main() async {
         .cast<MovieData>()
         .toList();
     for (MovieData movie in list) {
-      if (movie.isAdultContent == user.isAdultContent) {
+      if (movie.isAdultContent == false) {
         filteredList.add(movie);
       }
     }
@@ -39,19 +38,26 @@ void main() async {
 
   test('I can filter one genre from the list of movie', () {
     List<MovieData> filteredList = [];
+    List<int> userPreference = [53];
 
     var movieAsList = trendingList['results'] as List;
     var list = movieAsList
         .map<MovieData>((json) => MovieData.fromJson(json))
         .cast<MovieData>()
         .toList();
+
     for (MovieData movie in list) {
-      print(movie.genre);
-      if (movie.genre == user.favoriteGenres) {
+      final apiGenres = movie.genre.toSet();
+      if (apiGenres.intersection(userPreference.toSet()).isNotEmpty) {
         filteredList.add(movie);
       }
     }
+
+    for (var i = 0; i < filteredList.length; i++) {
+      print(filteredList[i].movieTitle);
+    }
+
     final answer = filteredList[0].movieTitle;
-    expect(answer, "Bullet Train");
+    expect(answer, "Orphan: First Kill");
   });
 }

@@ -1,10 +1,11 @@
 import 'dart:core';
-import 'package:tmdb_api/tmdb_api.dart';
+
+import 'package:silver_screen/genres.dart';
 
 //Instance of movie object
 class UserPreference {
   final bool isAdultContent;
-  final List<int> favoriteGenres;
+  final FavoriteGenres favoriteGenres;
 
   UserPreference({
     required this.isAdultContent,
