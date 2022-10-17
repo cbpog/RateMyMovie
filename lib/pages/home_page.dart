@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:silver_screen/movie_responsibilites/movie_card.dart';
+import 'package:silver_screen/widgets/trending_list.dart';
 import 'package:silver_screen/widgets/trending_list_builder.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,13 +19,7 @@ class _HomePageState extends State<HomePage> {
     TrendingList(),
     Center(child: Text("Profile")),
     Stack(
-      children: <Widget>[
-        MovieCard(color: Colors.grey),
-        MovieCard(color: Colors.purple),
-        MovieCard(color: Colors.cyan),
-        MovieCard(color: Colors.deepOrange),
-        MovieCard(color: Colors.greenAccent),
-      ],
+      children: <Widget>[MovieCard(movie: TrendingMovies.toList)],
     ),
     Center(child: Text("My List")),
   ];
