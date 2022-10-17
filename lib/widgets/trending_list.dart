@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class TrendingMovies extends StatelessWidget {
   final List trending;
   final String loadingMessage = 'Loading';
+  final posterPlaceHolder = Image.asset('lib/images/comingsoon.jpg');
 
-  const TrendingMovies({required Key key, required this.trending})
-      : super(key: key);
+  TrendingMovies({required Key key, required this.trending}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class TrendingMovies extends StatelessWidget {
                           decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: NetworkImage(
-                              'https://image.tmdb.org/t/p/w500${trending[index]['poster_path']}',
+                              'https://image.tmdb.org/t/p/w500${trending[index]['poster_path'] ?? posterPlaceHolder}',
                             )),
                           ),
                         ),

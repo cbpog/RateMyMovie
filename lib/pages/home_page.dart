@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:silver_screen/movie_card.dart';
-import 'package:silver_screen/widgets/trendingListBuilder.dart';
+import 'package:silver_screen/movie_responsibilites/movie_card.dart';
+import 'package:silver_screen/widgets/trending_list_builder.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

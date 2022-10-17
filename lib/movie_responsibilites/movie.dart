@@ -1,6 +1,6 @@
 import 'dart:core';
 
-import 'package:silver_screen/genres.dart';
+import 'package:silver_screen/movie_responsibilites/genres.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
 //Instance of movie object

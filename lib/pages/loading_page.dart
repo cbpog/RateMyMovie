@@ -1,7 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:flutter/material.dart';
-import 'package:silver_screen/home_page.dart';
+import 'package:silver_screen/pages/home_page.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
@@ -50,7 +50,7 @@ class _SplashState extends State<Splash> {
         child: const Text(
           "Silver Screen",
           style: TextStyle(
-              fontSize: 45,
+              fontSize: 40,
               fontWeight: FontWeight.w500,
               fontStyle: FontStyle.italic,
               color: Colors.white),

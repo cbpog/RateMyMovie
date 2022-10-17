@@ -1,6 +1,6 @@
 import 'package:tmdb_api/tmdb_api.dart';
-import 'package:silver_screen/movie.dart';
-import 'widgets/trending_list.dart';
+import 'package:silver_screen/movie_responsibilites/movie.dart';
+import '../widgets/trending_list.dart';
 
 //Class allows for Api Data request
 class ApiRequest {

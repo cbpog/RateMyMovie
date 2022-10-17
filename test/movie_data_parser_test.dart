@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:silver_screen/api_request.dart';
+import 'package:silver_screen/network/api_request.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

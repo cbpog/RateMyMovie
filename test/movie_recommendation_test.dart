@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:silver_screen/api_request.dart';
+import 'package:silver_screen/network/api_request.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:silver_screen/genres.dart';
-import 'package:silver_screen/movie.dart';
-import 'package:silver_screen/user_preference.dart';
+import 'package:silver_screen/movie_responsibilites/genres.dart';
+import 'package:silver_screen/movie_responsibilites/movie.dart';
+import 'package:silver_screen/movie_responsibilites/user_preference.dart';
 
 void main() async {
   final json = await File('test/trending_list.json').readAsString();
