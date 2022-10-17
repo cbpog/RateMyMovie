@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:silver_screen/api_request.dart';
 
 class MovieCard extends StatelessWidget {
   final List trending;
