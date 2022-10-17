@@ -37,7 +37,7 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         buildLogo(),
         buildTmdb(),
@@ -47,6 +47,7 @@ class _SplashState extends State<Splash> {
   }
 
   Widget buildLogo() => Container(
+        height: 48,
         child: const Text(
           "Silver Screen",
           style: TextStyle(
