@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swipable/flutter_swipable.dart';
+import 'package:silver_screen/movie.dart';
 
 class MovieCard extends StatelessWidget {
   final color;
@@ -8,8 +9,8 @@ class MovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Swipable(
+    return Swipable(
+      child: Center(
         child: Container(
           height: MediaQuery.of(context).size.height * 0.6,
           width: MediaQuery.of(context).size.width * 0.85,
@@ -21,4 +22,24 @@ class MovieCard extends StatelessWidget {
       ),
     );
   }
+
+  Widget buildMovieTitle(MovieData movie) => Row(
+        children: [
+          Text(
+            movie.movieTitle,
+            style: const TextStyle(
+              fontSize: 32,
+              color: Colors.black,
+            ),
+          ),
+          const SizedBox(width: 16),
+          Text(
+            movie.releaseDate,
+            style: const TextStyle(
+              fontSize: 32,
+              color: Colors.black,
+            ),
+          ),
+        ],
+      );
 }
