@@ -17,7 +17,7 @@ class ApiRequest {
     popularMovies = popularData['results']
         .map<MovieData>((x) => MovieData.fromJson(x))
         .toList();
-    return popularMovies;
+    return Future.value(popularMovies);
   }
 
   fetchPoster() async {

@@ -7,7 +7,7 @@ import 'movie.dart';
 class MovieCard extends StatelessWidget {
   final MovieData movie;
 
-  MovieCard({required this.movie});
+  const MovieCard({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -15,62 +15,103 @@ class MovieCard extends StatelessWidget {
       child: Container(
         height: MediaQuery.of(context).size.height * 0.6,
         width: MediaQuery.of(context).size.width * 0.85,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: Colors.black.withOpacity(.8),
+        decoration: movieCardDecoration(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            buildTopHalf(movie),
+            buildBottomHalf(movie),
+          ],
         ),
       ),
     );
   }
 
   //Poster & movie information
-  Widget buildTopHalf(MovieData movie) => Row(
+  Widget buildTopHalf(movie) => Row(
         children: [
           Column(
-            children: [displayPoster(movie)],
+            children: [
+              Container(
+                margin: const EdgeInsets.all(10),
+                height: 200,
+                width: 150,
+                decoration: BoxDecoration(
+                  border: Border.all(),
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: displayPoster(movie),
+                  ),
+                ),
+              ),
+            ],
           ),
           Column(
             children: [
               buildMovieTitle(movie),
               buildRating(movie),
-              streamAt(movie),
             ],
           ),
         ],
       );
 
   //Description
-  Widget buildBottomHalf(MovieData movie) => Row(
+  Widget buildBottomHalf(movie) => Row(
         children: [
           const Text("Description"),
           Text(movie.movieOverview),
         ],
       );
 
-  Widget buildMovieTitle(MovieData movie) => Row(
+  Widget buildMovieTitle(movie) => Row(
         children: [
           Text(
             movie.movieTitle,
-            style: const TextStyle(
-              fontSize: 32,
-              color: Colors.black,
-            ),
+            style: textStyleTitle(),
           ),
           const SizedBox(width: 16),
           Text(
             movie.releaseDate,
-            style: const TextStyle(
-              fontSize: 32,
-              color: Colors.black,
-            ),
+            style: textStyleTitle(),
           ),
         ],
       );
 
-  Widget displayPoster(MovieData movie) =>
-      Image(image: NetworkImage(movie.posterPath));
+  displayPoster(movie) => Image(
+      image:
+          NetworkImage('https://image.tmdb.org/t/p/w500${movie.posterPath}'));
 
-  Widget buildRating(MovieData movie) => Row(
-        children: [Icons()],
+  Widget buildRating(movie) => Row(
+        children: const [
+          Icon(Icons.star_border),
+          Icon(Icons.star_border),
+          Icon(Icons.star_border),
+          Icon(Icons.star_border),
+          Icon(Icons.star_border),
+        ],
+      );
+
+  movieCardDecoration() => BoxDecoration(
+      gradient: const LinearGradient(
+        colors: [Colors.lightBlueAccent, Colors.purple],
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        stops: [0.7, 1],
+      ),
+      border: Border.all(
+        color: Colors.white,
+      ),
+      borderRadius: const BorderRadius.all(Radius.circular(16)));
+
+  textStyleSubText() => const TextStyle(
+        fontSize: 15,
+        color: Colors.black,
+      );
+
+  textStyleTitle() => const TextStyle(
+        fontSize: 25,
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
       );
 }

@@ -28,8 +28,8 @@ class MovieCard extends StatelessWidget {
                       borderRadius: const BorderRadius.all(Radius.circular(10)),
                       image: DecorationImage(
                         fit: BoxFit.fill,
-                        image: NetworkImage('https://image.tmdb.org/t/p/w500' +
-                            trending[0]['poster_path']),
+                        image: NetworkImage(
+                            'https://image.tmdb.org/t/p/w500${trending[0]['poster_path']}'),
                       ),
                     ),
                   ),
