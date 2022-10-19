@@ -2,21 +2,32 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_swipable/flutter_swipable.dart';
 import 'package:silver_screen/movie_responsibilites/movie_card.dart';
 import 'package:silver_screen/network/api_request.dart';
-
 import '../movie_responsibilites/movie.dart';
 
-class SuggestionPage extends StatelessWidget {
+class SuggestionPage extends StatefulWidget {
+  const SuggestionPage({Key? key}) : super(key: key);
   @override
-  Widget build(BuildContext context) {
-    return displayStackOfCard(listOfMovie());
-  }
+  State<SuggestionPage> createState() => _SuggestionPageState();
+}
+
+class _SuggestionPageState extends State<SuggestionPage> {
+  List movieInstance = [];
 
   Future<List<MovieData>> listOfMovie() async {
     var listOfMovies = await ApiRequest().fetchMovies();
-    return Future.value(listOfMovies);
+    setState(() {
+      movieInstance = listOfMovies;
+    });
+    return listOfMovies;
   }
 
-  Widget displayStackOfCard(var listOfMovies) => Stack(
+  @override
+  Widget build(BuildContext context) {
+    listOfMovie();
+    return displayStackOfCard(movieInstance);
+  }
+
+  Widget displayStackOfCard(List listOfMovies) => Stack(
         children: [
           for (MovieData movie in listOfMovies)
             Swipable(child: MovieCard(movie: movie))

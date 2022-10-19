@@ -14,8 +14,8 @@ class ApiRequest {
   //Pulling Api Information
   Future<List<MovieData>> fetchMovies() async {
     TMDB apiResponse = TMDB(ApiKeys(apiKey, apiToken));
-    Map popularData = await apiResponse.v3.movies.getPopular();
-    popularMovies = await popularData['results']
+    var popularData = await apiResponse.v3.movies.getPopular();
+    popularMovies = popularData['results']
         .map<MovieData>((x) => MovieData.fromJson(x))
         .toList();
     return popularMovies;
