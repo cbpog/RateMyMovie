@@ -33,13 +33,6 @@ class MovieCard extends StatelessWidget {
           Column(
             children: [
               Container(
-                margin: const EdgeInsets.all(10),
-                height: 200,
-                width: 150,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                  borderRadius: const BorderRadius.all(Radius.circular(10)),
-                ),
                 child: displayPoster(movie),
               ),
             ],
@@ -54,36 +47,50 @@ class MovieCard extends StatelessWidget {
       );
 
   //Description
-  Widget buildBottomHalf(movie) => Row(
+  Widget buildBottomHalf(movie) => Column(
         children: [
-          const Text("Description"),
-          Expanded(
+          const Text("Description \n"),
+          SizedBox(
             child: Text(movie.movieOverview, softWrap: true),
           )
         ],
       );
 
   //Title of the Movie
-  Widget buildMovieTitle(MovieData movie) => Row(
+  Widget buildMovieTitle(MovieData movie) => Column(
         children: [
-          Text(
-            movie.movieTitle,
-            style: textStyleTitle(),
-            softWrap: true,
+          SizedBox(
+            child: Text(
+              movie.movieTitle,
+              style: textStyleTitle(),
+              softWrap: true,
+            ),
           ),
-          const SizedBox(width: 16),
-          Text(
-            movie.releaseDate,
-            style: textStyleTitle(),
+          SizedBox(
+            child: Text(
+              movie.releaseDate,
+              style: textStyleTitle(),
+              softWrap: true,
+            ),
           ),
         ],
       );
 
   //Display poster on the card
-  displayPoster(MovieData movie) => Image(
-      fit: BoxFit.fill,
-      image:
-          NetworkImage('https://image.tmdb.org/t/p/w500${movie.posterPath}'));
+  displayPoster(MovieData movie) => Container(
+        margin: const EdgeInsets.all(10),
+        height: 200,
+        width: 150,
+        decoration: BoxDecoration(
+          color: Colors.transparent,
+          image: DecorationImage(
+            image: NetworkImage(
+                'https://image.tmdb.org/t/p/w500${movie.posterPath}'),
+            fit: BoxFit.fill,
+          ),
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+        ),
+      );
 
   //Display Rating on the card
   Widget buildRating(movie) => Row(
