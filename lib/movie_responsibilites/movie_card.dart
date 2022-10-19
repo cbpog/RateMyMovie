@@ -39,11 +39,8 @@ class MovieCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   border: Border.all(),
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
-                  image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: displayPoster(movie),
-                  ),
                 ),
+                child: displayPoster(movie),
               ),
             ],
           ),
@@ -60,16 +57,19 @@ class MovieCard extends StatelessWidget {
   Widget buildBottomHalf(movie) => Row(
         children: [
           const Text("Description"),
-          Text(movie.movieOverview),
+          Expanded(
+            child: Text(movie.movieOverview, softWrap: true),
+          )
         ],
       );
 
   //Title of the Movie
-  Widget buildMovieTitle(movie) => Row(
+  Widget buildMovieTitle(MovieData movie) => Row(
         children: [
           Text(
             movie.movieTitle,
             style: textStyleTitle(),
+            softWrap: true,
           ),
           const SizedBox(width: 16),
           Text(
@@ -80,7 +80,8 @@ class MovieCard extends StatelessWidget {
       );
 
   //Display poster on the card
-  displayPoster(movie) => Image(
+  displayPoster(MovieData movie) => Image(
+      fit: BoxFit.fill,
       image:
           NetworkImage('https://image.tmdb.org/t/p/w500${movie.posterPath}'));
 

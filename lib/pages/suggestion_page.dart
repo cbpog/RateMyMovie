@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_swipable/flutter_swipable.dart';
 import 'package:silver_screen/movie_responsibilites/movie_card.dart';
@@ -12,11 +15,16 @@ class SuggestionPage extends StatefulWidget {
 
 class _SuggestionPageState extends State<SuggestionPage> {
   List movieInstance = [];
+  List movieSuggestions = [];
 
   Future<List<MovieData>> listOfMovie() async {
     var listOfMovies = await ApiRequest().fetchMovies();
     setState(() {
       movieInstance = listOfMovies;
+
+      int startIndex = 0;
+      int endIndex = 14;
+      movieSuggestions = movieInstance.sublist(startIndex, endIndex);
     });
     return listOfMovies;
   }
@@ -24,7 +32,7 @@ class _SuggestionPageState extends State<SuggestionPage> {
   @override
   Widget build(BuildContext context) {
     listOfMovie();
-    return displayStackOfCard(movieInstance);
+    return displayStackOfCard(movieSuggestions);
   }
 
   Widget displayStackOfCard(List listOfMovies) => Stack(

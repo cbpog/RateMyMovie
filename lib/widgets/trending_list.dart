@@ -1,9 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class TrendingMovies extends StatelessWidget {
   final List trending;
   final String loadingMessage = 'Loading';
-  final posterPlaceHolder = Image.asset('lib/images/comingsoon.jpg');
+  final posterPlaceHolder = File('images/comingsoon.jpg');
 
   TrendingMovies({required Key key, required this.trending}) : super(key: key);
 
