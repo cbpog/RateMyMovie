@@ -64,6 +64,7 @@ class MovieCard extends StatelessWidget {
         ],
       );
 
+  //Title of the Movie
   Widget buildMovieTitle(movie) => Row(
         children: [
           Text(
@@ -78,10 +79,12 @@ class MovieCard extends StatelessWidget {
         ],
       );
 
+  //Display poster on the card
   displayPoster(movie) => Image(
       image:
           NetworkImage('https://image.tmdb.org/t/p/w500${movie.posterPath}'));
 
+  //Display Rating on the card
   Widget buildRating(movie) => Row(
         children: const [
           Icon(Icons.star_border),
@@ -92,6 +95,7 @@ class MovieCard extends StatelessWidget {
         ],
       );
 
+  //Card decoration
   movieCardDecoration() => BoxDecoration(
       gradient: const LinearGradient(
         colors: [Colors.lightBlueAccent, Colors.purple],
@@ -104,6 +108,7 @@ class MovieCard extends StatelessWidget {
       ),
       borderRadius: const BorderRadius.all(Radius.circular(16)));
 
+  //Sub text
   textStyleSubText() => const TextStyle(
         fontSize: 15,
         color: Colors.black,

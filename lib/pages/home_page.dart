@@ -16,10 +16,19 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 3;
 
   final tabs = [
+    //Saved
     Center(child: Text("Watch Later")),
+
+    //Trending List
     TrendingList(),
+
+    //Profile
     Center(child: Text("Profile")),
+
+    //Suggestion
     SuggestionPage(),
+
+    //Likes
     Center(child: Text("My List")),
   ];
 

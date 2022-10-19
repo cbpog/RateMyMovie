@@ -1,6 +1,7 @@
+import 'dart:convert';
+
 import 'package:tmdb_api/tmdb_api.dart';
 import 'package:silver_screen/movie_responsibilites/movie.dart';
-import '../widgets/trending_list.dart';
 
 //Class allows for Api Data request
 class ApiRequest {
@@ -14,10 +15,10 @@ class ApiRequest {
   Future<List<MovieData>> fetchMovies() async {
     TMDB apiResponse = TMDB(ApiKeys(apiKey, apiToken));
     Map popularData = await apiResponse.v3.movies.getPopular();
-    popularMovies = popularData['results']
+    popularMovies = await popularData['results']
         .map<MovieData>((x) => MovieData.fromJson(x))
         .toList();
-    return Future.value(popularMovies);
+    return popularMovies;
   }
 
   fetchPoster() async {
