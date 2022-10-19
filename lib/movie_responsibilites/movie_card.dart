@@ -50,8 +50,12 @@ class MovieCard extends StatelessWidget {
   Widget buildBottomHalf(movie) => Column(
         children: [
           const Text("Description \n"),
-          SizedBox(
-            child: Text(movie.movieOverview, softWrap: true),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Text(
+              movie.movieOverview,
+              softWrap: true,
+            ),
           )
         ],
       );
