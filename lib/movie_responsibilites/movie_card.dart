@@ -37,11 +37,14 @@ class MovieCard extends StatelessWidget {
               ),
             ],
           ),
-          Column(
-            children: [
-              buildMovieTitle(movie),
-              buildRating(movie),
-            ],
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                buildMovieTitle(movie),
+                buildRating(movie),
+              ],
+            ),
           ),
         ],
       );
@@ -49,31 +52,41 @@ class MovieCard extends StatelessWidget {
   //Description
   Widget buildBottomHalf(movie) => Column(
         children: [
-          const Text("Description \n"),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Text(
-              movie.movieOverview,
-              softWrap: true,
+          Text(
+            'Description \n',
+            style: textStyleDescription(),
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Text(
+                movie.movieOverview,
+                softWrap: true,
+              ),
             ),
           )
         ],
       );
 
-  //Title of the Movie
+  //Title and Release Date of the Movie
   Widget buildMovieTitle(MovieData movie) => Column(
         children: [
           SizedBox(
             child: Text(
               movie.movieTitle,
+              textAlign: TextAlign.left,
               style: textStyleTitle(),
               softWrap: true,
             ),
           ),
           SizedBox(
+            width: 177,
+            height: 40,
             child: Text(
               movie.releaseDate,
-              style: textStyleTitle(),
+              textAlign: TextAlign.center,
+              style: textStyleSubText(),
               softWrap: true,
             ),
           ),
@@ -98,6 +111,7 @@ class MovieCard extends StatelessWidget {
 
   //Display Rating on the card
   Widget buildRating(movie) => Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: const [
           Icon(Icons.star_border),
           Icon(Icons.star_border),
@@ -110,7 +124,7 @@ class MovieCard extends StatelessWidget {
   //Card decoration
   movieCardDecoration() => BoxDecoration(
       gradient: const LinearGradient(
-        colors: [Colors.lightBlueAccent, Colors.purple],
+        colors: [Colors.redAccent, Colors.purple],
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
         stops: [0.7, 1],
@@ -120,14 +134,21 @@ class MovieCard extends StatelessWidget {
       ),
       borderRadius: const BorderRadius.all(Radius.circular(16)));
 
-  //Sub text
+  //Sub text format
   textStyleSubText() => const TextStyle(
         fontSize: 15,
         color: Colors.black,
       );
-
+  //Title text format
   textStyleTitle() => const TextStyle(
         fontSize: 25,
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+      );
+  //Description Header text format
+  textStyleDescription() => const TextStyle(
+        fontSize: 10,
+        textBaseline: TextBaseline.ideographic,
         color: Colors.black,
         fontWeight: FontWeight.bold,
       );

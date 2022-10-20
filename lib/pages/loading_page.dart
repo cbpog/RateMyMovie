@@ -41,7 +41,7 @@ class _SplashState extends State<Splash> {
       children: <Widget>[
         buildLogo(),
         buildTmdb(),
-        buildLoadingStatus(),
+        Expanded(child: buildLoadingStatus()),
       ],
     );
   }
@@ -61,7 +61,7 @@ class _SplashState extends State<Splash> {
   Widget buildTmdb() => Container(
         height: 20,
         child: const Text(
-          'Power by TMDB',
+          'Powered by TMDB',
           style: TextStyle(
             fontSize: 14,
             color: Colors.white,
@@ -70,11 +70,10 @@ class _SplashState extends State<Splash> {
         ),
       );
 
-  Widget buildLoadingStatus() => Container(
-        height: 50,
-        width: 50,
-        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
-        child: const CircularProgressIndicator(
+  Widget buildLoadingStatus() => const SizedBox(
+        height: 10,
+        width: 10,
+        child: CircularProgressIndicator(
           color: Colors.white,
         ),
       );
