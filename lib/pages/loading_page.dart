@@ -71,8 +71,8 @@ class _SplashState extends State<Splash> {
       );
 
   Widget buildLoadingStatus() => const SizedBox(
-        height: 10,
-        width: 10,
+        height: 20,
+        width: 20,
         child: CircularProgressIndicator(
           color: Colors.white,
         ),
