@@ -123,12 +123,7 @@ class MovieCard extends StatelessWidget {
 
   //Card decoration
   movieCardDecoration() => BoxDecoration(
-      gradient: const LinearGradient(
-        colors: [Colors.redAccent, Colors.purple],
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        stops: [0.7, 1],
-      ),
+      color: Colors.grey,
       border: Border.all(
         color: Colors.white,
       ),

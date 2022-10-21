@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:silver_screen/widgets/trending_list.dart';
+import 'package:silver_screen/widgets/popular_list.dart';
 import 'package:silver_screen/network/api_request.dart';
+import 'package:silver_screen/widgets/trending_list.dart';
 
 class TrendingList extends StatefulWidget {
   @override
@@ -8,7 +9,8 @@ class TrendingList extends StatefulWidget {
 }
 
 class _TrendingListState extends State<TrendingList> {
-  List trendingMovies = [];
+  List trendingList = [];
+  List popularList = [];
   @override
   void initState() {
     callPosterData();
@@ -16,9 +18,11 @@ class _TrendingListState extends State<TrendingList> {
   }
 
   void callPosterData() async {
-    var callList = await ApiRequest().fetchPoster();
+    var callTrendList = await ApiRequest().fetchTrending();
+    var callPopList = await ApiRequest().fetchPopular();
     setState(() {
-      trendingMovies = callList['results'];
+      trendingList = callTrendList['results'];
+      popularList = callPopList['results'];
     });
   }
 
@@ -27,10 +31,8 @@ class _TrendingListState extends State<TrendingList> {
     return ListView(
       padding: const EdgeInsets.all(10),
       children: [
-        TrendingMovies(
-          trending: trendingMovies,
-          key: UniqueKey(),
-        )
+        TrendingMovies(key: UniqueKey(), trending: trendingList),
+        PopularMovies(key: UniqueKey(), popular: popularList),
       ],
     );
   }

@@ -21,9 +21,15 @@ class ApiRequest {
     return popularMovies;
   }
 
-  fetchPoster() async {
+  fetchTrending() async {
     TMDB response = TMDB(ApiKeys(apiKey, apiToken));
-    Map posterResults = await response.v3.trending.getTrending();
-    return posterResults;
+    var trendingResults = await response.v3.trending.getTrending();
+    return trendingResults;
+  }
+
+  fetchPopular() async {
+    TMDB response = TMDB(ApiKeys(apiKey, apiToken));
+    var popularResults = await response.v3.movies.getPopular();
+    return popularResults;
   }
 }

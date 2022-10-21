@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_swipable/flutter_swipable.dart';
 import 'package:silver_screen/movie_responsibilites/movie_card.dart';

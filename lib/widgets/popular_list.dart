@@ -1,12 +1,12 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 
-class TrendingMovies extends StatelessWidget {
-  final List trending;
+class PopularMovies extends StatelessWidget {
+  final List popular;
   final String loadingMessage = 'Title coming soon';
   final posterPlaceHolder = File('lib/images/comingsoon.jpg');
 
-  TrendingMovies({required Key key, required this.trending}) : super(key: key);
+  PopularMovies({required Key key, required this.popular}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class TrendingMovies extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'Trending Movies',
+          'Popular Movies',
           style: TextStyle(
             color: Colors.grey,
             fontWeight: FontWeight.bold,
@@ -28,7 +28,7 @@ class TrendingMovies extends StatelessWidget {
         SizedBox(
           height: 270,
           child: ListView.builder(
-              itemCount: trending.length,
+              itemCount: popular.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return InkWell(
@@ -42,12 +42,12 @@ class TrendingMovies extends StatelessWidget {
                             image: DecorationImage(
                                 image: NetworkImage(
                               scale: 0.1,
-                              'https://image.tmdb.org/t/p/w500${trending[index]['poster_path'] ?? posterPlaceHolder}',
+                              'https://image.tmdb.org/t/p/w500${popular[index]['poster_path'] ?? posterPlaceHolder}',
                             )),
                           ),
                         ),
                         Text(
-                          trending[index]['title'] ?? loadingMessage,
+                          popular[index]['title'] ?? loadingMessage,
                           style: const TextStyle(
                             color: Colors.grey,
                             fontSize: 16,
