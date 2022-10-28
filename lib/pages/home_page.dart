@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:silver_screen/movie_responsibilites/movie_card.dart';
+import 'package:silver_screen/movie_responsibilities/movie_card.dart';
 import 'package:silver_screen/pages/suggestion_page.dart';
 import 'package:silver_screen/widgets/popular_list.dart';
 import '../widgets/trending_list_builder.dart';

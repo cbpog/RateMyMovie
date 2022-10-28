@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:silver_screen/network/api_request.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:silver_screen/movie_responsibilites/genres.dart';
-import 'package:silver_screen/movie_responsibilites/movie.dart';
-import 'package:silver_screen/movie_responsibilites/user_preference.dart';
+import 'package:silver_screen/movie_responsibilities/genres.dart';
+import 'package:silver_screen/movie_responsibilities/movie.dart';
+import 'package:silver_screen/movie_responsibilities/user_preference.dart';
 
 void main() async {
   final json = await File('test/trending_list.json').readAsString();
@@ -52,11 +52,6 @@ void main() async {
         filteredList.add(movie);
       }
     }
-
-    for (var i = 0; i < filteredList.length; i++) {
-      print(filteredList[i].movieTitle);
-    }
-
     final answer = filteredList[0].movieTitle;
     expect(answer, "Orphan: First Kill");
   });

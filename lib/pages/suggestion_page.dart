@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_swipable/flutter_swipable.dart';
-import 'package:silver_screen/movie_responsibilites/movie_card.dart';
+import 'package:silver_screen/movie_responsibilities/movie_card.dart';
 import 'package:silver_screen/network/api_request.dart';
-import '../movie_responsibilites/movie.dart';
+import '../movie_responsibilities/movie.dart';
 
 class SuggestionPage extends StatefulWidget {
   const SuggestionPage({Key? key}) : super(key: key);

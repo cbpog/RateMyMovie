@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swipable/flutter_swipable.dart';
-import 'package:silver_screen/movie_responsibilites/movie.dart';
+import 'package:silver_screen/movie_responsibilities/movie.dart';
 
 import 'movie.dart';
 

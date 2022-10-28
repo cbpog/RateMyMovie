@@ -1,15 +1,13 @@
-import 'dart:convert';
-
 import 'package:tmdb_api/tmdb_api.dart';
-import 'package:silver_screen/movie_responsibilites/movie.dart';
+import 'package:silver_screen/movie_responsibilities/movie.dart';
+import 'package:silver_screen/network/api_key_token.dart';
 
 //Class allows for Api Data request
 class ApiRequest {
   List<MovieData> popularMovies = [];
   List<MovieData> trendingMovies = [];
-  final String apiKey = '41187f96bab5c76a36c08caf7793a818';
-  final String apiToken =
-      'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MTE4N2Y5NmJhYjVjNzZhMzZjMDhjYWY3NzkzYTgxOCIsInN1YiI6IjYzMzQ2OTIyOGEwZTliMDA3YjdjYTlhNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qiOBbmxp4eYSOdSpApHL8KsSpQKXVwLIj_emlTYDxDw';
+  final String apiKey = ApiKeyToken().key;
+  final String apiToken = ApiKeyToken().token;
 
   //Pulling Api Information
   Future<List<MovieData>> fetchMovies() async {

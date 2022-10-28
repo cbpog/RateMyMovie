@@ -1,16 +1,11 @@
 # silver_screen
 
-A new Flutter project.
-
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+A dart file with your specific key and token is required that is not part of this project file.
+Example of this class looks like this:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+class ApiKeyToken {
+    final key = "Your key here";
+    final token = "Your token here";
+}

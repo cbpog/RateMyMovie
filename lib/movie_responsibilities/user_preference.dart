@@ -1,6 +1,6 @@
 import 'dart:core';
 
-import 'package:silver_screen/movie_responsibilites/genres.dart';
+import 'package:silver_screen/movie_responsibilities/genres.dart';
 
 //Instance of movie object
 class UserPreference {
