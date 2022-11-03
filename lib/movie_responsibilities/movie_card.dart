@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_swipable/flutter_swipable.dart';
 import 'package:silver_screen/movie_responsibilities/movie.dart';
-
-import 'movie.dart';
 
 class MovieCard extends StatelessWidget {
   final MovieData movie;
+  final deviceHeightModifier = 0.6;
+  final deviceWidthModifier = 0.85;
 
   const MovieCard({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
+    final deviceHeight = MediaQuery.of(context).size.height;
+    final deviceWidth = MediaQuery.of(context).size.width;
     return Center(
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.6,
-        width: MediaQuery.of(context).size.width * 0.85,
+        height: deviceHeight * deviceHeightModifier,
+        width: deviceWidth * deviceWidthModifier,
         decoration: movieCardDecoration(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,7 +43,7 @@ class MovieCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 buildMovieTitle(movie),
-                buildRating(movie),
+                displayRating(movie),
               ],
             ),
           ),
@@ -69,7 +70,7 @@ class MovieCard extends StatelessWidget {
         ],
       );
 
-  //Title and Release Date of the Movie
+  //Includes the release date of the movie
   Widget buildMovieTitle(MovieData movie) => Column(
         children: [
           SizedBox(
@@ -93,7 +94,6 @@ class MovieCard extends StatelessWidget {
         ],
       );
 
-  //Display poster on the card
   displayPoster(MovieData movie) => Container(
         margin: const EdgeInsets.all(10),
         height: 200,
@@ -109,8 +109,7 @@ class MovieCard extends StatelessWidget {
         ),
       );
 
-  //Display Rating on the card
-  Widget buildRating(movie) => Row(
+  Widget displayRating(movie) => Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
           Icon(Icons.star_border),

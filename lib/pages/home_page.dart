@@ -1,9 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:silver_screen/movie_responsibilities/movie_card.dart';
 import 'package:silver_screen/pages/suggestion_page.dart';
-import 'package:silver_screen/widgets/popular_list.dart';
 import '../widgets/trending_list_builder.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,19 +16,19 @@ class _HomePageState extends State<HomePage> {
 
   final tabs = [
     //Saved
-    Center(child: Text("Watch Later")),
+    const Center(child: Text("Watch Later")),
 
     //Trending List
-    TrendingList(),
+    const TrendingList(),
 
     //Profile
-    Center(child: Text("Profile")),
+    const Center(child: Text("Profile")),
 
     //Suggestion
-    SuggestionPage(),
+    const SuggestionPage(),
 
     //Likes
-    Center(child: Text("My List")),
+    const Center(child: Text("My List")),
   ];
 
   @override
@@ -39,7 +37,7 @@ class _HomePageState extends State<HomePage> {
       decoration: const BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.cover,
-          image: AssetImage('lib/images/circles_pattern_black_white.png'),
+          image: AssetImage('assets/circles_pattern_black_white.png'),
         ),
       ),
       child: BackdropFilter(
@@ -74,7 +72,9 @@ class _HomePageState extends State<HomePage> {
                 activeColor: Colors.white,
                 tabBackgroundColor: Colors.grey.shade800,
                 gap: 8,
-                padding: const EdgeInsets.all(16),
+                padding: EdgeInsets.all(
+                  MediaQuery.of(context).size.width * .03,
+                ),
                 tabs: const [
                   GButton(icon: Icons.airplay, text: "Saved"),
                   GButton(icon: Icons.bolt_outlined, text: "Trending"),

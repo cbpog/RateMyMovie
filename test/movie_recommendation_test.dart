@@ -1,10 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:silver_screen/network/api_request.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:silver_screen/movie_responsibilities/genres.dart';
 import 'package:silver_screen/movie_responsibilities/movie.dart';
-import 'package:silver_screen/movie_responsibilities/user_preference.dart';
 
 void main() async {
   final json = await File('test/trending_list.json').readAsString();

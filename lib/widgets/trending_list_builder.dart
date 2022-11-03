@@ -4,11 +4,13 @@ import 'package:silver_screen/network/api_request.dart';
 import 'package:silver_screen/widgets/trending_list.dart';
 
 class TrendingList extends StatefulWidget {
+  const TrendingList({super.key});
+
   @override
-  _TrendingListState createState() => _TrendingListState();
+  TrendingListState createState() => TrendingListState();
 }
 
-class _TrendingListState extends State<TrendingList> {
+class TrendingListState extends State<TrendingList> {
   List trendingList = [];
   List popularList = [];
   @override

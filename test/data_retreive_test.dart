@@ -13,6 +13,6 @@ void main() {
   test('I can access the hidden key and token', () {
     final key = ApiKeyToken().key;
     final token = ApiKeyToken().token;
-    expect({key, token}, {(startsWith('41187')), (startsWith('eyJhbGc'))});
+    expect({key, token}, {(startsWith('4118')), (startsWith('eyJh'))});
   });
 }

@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:silver_screen/pages/home_page.dart';
 
 class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
-      splash: Splash(),
-      nextScreen: HomePage(),
+      splash: const Splash(),
+      nextScreen: const HomePage(),
       splashTransition: SplashTransition.slideTransition,
       pageTransitionType: PageTransitionType.topToBottom,
       backgroundColor: Colors.black,
@@ -20,10 +22,10 @@ class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
 
   @override
-  _SplashState createState() => _SplashState();
+  SplashState createState() => SplashState();
 }
 
-class _SplashState extends State<Splash> {
+class SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
@@ -31,7 +33,7 @@ class _SplashState extends State<Splash> {
   }
 
   _navigateToHome() async {
-    await Future.delayed(Duration(seconds: 30));
+    await Future.delayed(const Duration(seconds: 30));
   }
 
   @override

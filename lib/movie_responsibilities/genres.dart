@@ -1,7 +1,5 @@
 import 'dart:core';
 
-import 'package:tmdb_api/tmdb_api.dart';
-
 class GenresData {
   final int genresData;
 

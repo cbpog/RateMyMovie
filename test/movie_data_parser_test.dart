@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:silver_screen/network/api_request.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -34,18 +33,6 @@ void main() {
       genreList.add(genreData[i]['name']);
     }
     expect(genreList, ['Adventure', 'Drama', 'Horror']);
-  });
-
-  test('I can get the movie overview', () async {
-    final json = await File('test/movie_beast.json').readAsString();
-    final jsonData = jsonDecode(json);
-    final answer = jsonData['overview'];
-    expect(
-        answer,
-        "A recently widowed man and his two teenage daughters " +
-            "travel to a game reserve in South Africa. However, their journey of " +
-            "healing soon turns into a fight for survival when a bloodthirsty lion " +
-            "starts to stalk them.");
   });
 
   test('I can get the movie id', () async {

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class PopularMovies extends StatelessWidget {
   final List popular;
   final String loadingMessage = 'Title coming soon';
-  final posterPlaceHolder = File('lib/images/comingsoon.jpg');
+  final posterPlaceHolder = File('assets/comingsoon.jpg');
 
   PopularMovies({required Key key, required this.popular}) : super(key: key);
 
