@@ -3,8 +3,8 @@ import 'package:silver_screen/movie_responsibilities/movie.dart';
 
 class MovieCard extends StatelessWidget {
   final MovieData movie;
-  final deviceHeightModifier = 0.6;
-  final deviceWidthModifier = 0.85;
+  static const deviceHeightRatio = 0.6;
+  static const deviceWidthRatio = 0.85;
 
   const MovieCard({super.key, required this.movie});
 
@@ -12,16 +12,17 @@ class MovieCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidth = MediaQuery.of(context).size.width;
+
     return Center(
       child: Container(
-        height: deviceHeight * deviceHeightModifier,
-        width: deviceWidth * deviceWidthModifier,
+        height: deviceHeight * deviceHeightRatio,
+        width: deviceWidth * deviceWidthRatio,
         decoration: movieCardDecoration(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            buildTopHalf(movie),
-            buildBottomHalf(movie),
+            buildTopHalf(movie, context),
+            buildBottomHalf(movie, context),
           ],
         ),
       ),
@@ -29,7 +30,7 @@ class MovieCard extends StatelessWidget {
   }
 
   //Poster & movie information
-  Widget buildTopHalf(movie) => Row(
+  Widget buildTopHalf(movie, context) => Row(
         children: [
           Column(
             children: [
@@ -42,7 +43,7 @@ class MovieCard extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                buildMovieTitle(movie),
+                buildMovieTitle(movie, context),
                 displayRating(movie),
               ],
             ),
@@ -51,11 +52,11 @@ class MovieCard extends StatelessWidget {
       );
 
   //Description
-  Widget buildBottomHalf(movie) => Column(
+  Widget buildBottomHalf(movie, context) => Column(
         children: [
           Text(
             'Description \n',
-            style: textStyleDescription(),
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
           SingleChildScrollView(
             scrollDirection: Axis.vertical,
@@ -71,13 +72,13 @@ class MovieCard extends StatelessWidget {
       );
 
   //Includes the release date of the movie
-  Widget buildMovieTitle(MovieData movie) => Column(
+  Widget buildMovieTitle(MovieData movie, context) => Column(
         children: [
           SizedBox(
             child: Text(
               movie.movieTitle,
               textAlign: TextAlign.left,
-              style: textStyleTitle(),
+              style: Theme.of(context).textTheme.titleLarge,
               softWrap: true,
             ),
           ),
@@ -87,7 +88,7 @@ class MovieCard extends StatelessWidget {
             child: Text(
               movie.releaseDate,
               textAlign: TextAlign.center,
-              style: textStyleSubText(),
+              style: Theme.of(context).textTheme.labelMedium,
               softWrap: true,
             ),
           ),
@@ -120,30 +121,10 @@ class MovieCard extends StatelessWidget {
         ],
       );
 
-  //Card decoration
   movieCardDecoration() => BoxDecoration(
       color: Colors.grey,
       border: Border.all(
         color: Colors.white,
       ),
       borderRadius: const BorderRadius.all(Radius.circular(16)));
-
-  //Sub text format
-  textStyleSubText() => const TextStyle(
-        fontSize: 15,
-        color: Colors.black,
-      );
-  //Title text format
-  textStyleTitle() => const TextStyle(
-        fontSize: 25,
-        color: Colors.black,
-        fontWeight: FontWeight.bold,
-      );
-  //Description Header text format
-  textStyleDescription() => const TextStyle(
-        fontSize: 10,
-        textBaseline: TextBaseline.ideographic,
-        color: Colors.black,
-        fontWeight: FontWeight.bold,
-      );
 }

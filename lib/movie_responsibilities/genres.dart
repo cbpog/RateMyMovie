@@ -1,7 +1,5 @@
 import 'dart:core';
 
-import 'package:tmdb_api/tmdb_api.dart';
-
 enum GenreName {
   action,
   adventure,
@@ -53,7 +51,7 @@ class GenresData {
 }
 
 class FavoriteGenres {
-  final List<GenresData> favoriteGenres;
+  final List<GenresData> favoriteGenresList;
 
-  FavoriteGenres({required this.favoriteGenres});
+  FavoriteGenres({required this.favoriteGenresList});
 }

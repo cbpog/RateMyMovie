@@ -10,9 +10,26 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      title: 'Silver Screen',
+      theme: ThemeData(
+        textTheme: const TextTheme(
+            //Movie Title
+            titleLarge: TextStyle(
+                fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
+            //Release Date
+            labelMedium: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+            ),
+            //Description
+            headlineMedium: TextStyle(
+                fontSize: 12,
+                color: Colors.black,
+                fontWeight: FontWeight.bold)),
+      ),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }
